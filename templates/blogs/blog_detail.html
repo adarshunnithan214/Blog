@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ blog.title }}</h2>
+<p>{{ blog.content }}</p>
+
+{% if user == blog.author %}
+  <a class=" fw-bold" href="{% url 'edit_blog' blog.id %}">Edit</a>
+  <a class=" ms-3 fw-bold" href="{% url 'delete_blog' blog.id %}">Delete</a>
+{% endif %}
+{% endblock %}
